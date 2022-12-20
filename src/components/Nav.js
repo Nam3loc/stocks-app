@@ -3,16 +3,16 @@ import { Link } from "react-router-dom"
 export default function Nav(props) {
     return (
         <div className="nav">
-            <Link to='/' >
-                <div>Home</div>
+            <Link className="text" to='/' >
+                <div className="hover">Home</div>
             </Link>
 
-            <Link to='/about' >
-                <div>About</div>
+            <Link className="text" to='/about' >
+                <div className="hover">About</div>
             </Link>
 
-            <Link to='/stocks' >
-                <div>Dashboard</div>
+            <Link className="text" to='/stocks' >
+                <div className="hover">Dashboard</div>
             </Link>
         </div>
     )

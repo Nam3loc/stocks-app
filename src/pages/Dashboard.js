@@ -1,53 +1,32 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import dataArr from '../components/data';
+import { Link } from "react-router-dom";
+import dataArr from '../data';
 
 export default function Dashboard(props) {
-    const apiKey = process.env.REACT_APP_API_KEY; 
-
-    const { symbol } = useParams();
-
-    // const url = `https://financialmodelingprep.com/api/v3/stock/list?apikey=${apiKey}`;
-
-    
-
-    const [stock, setStock] = useState(null);
-
-    // const getStock = async () => {
-    //     try {
-    //         const response = await fetch(url);
-    //         const data = await response.json();
-    //         setStock(data);
-    //     } catch(err) {
-    //         console.error(err);
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     getStock()
-    // }, [])
-
-    const loaded = () => {
-        return (
-            <div>
-                <h1>{props.stocks.name}</h1>
-                <h2>{props.stocks.symbol}</h2>
-                {/* <h4>{symbol.price}</h4>
-                <h4>{stock.exchange}</h4>
-                <h4>{stock.exchangeShortName}</h4>
-                <h4>{stock.type}</h4> */}
-                {/* <button onClick={handleClick}>Button</button> */}
-            </div>
-        )
-    }
-
-    const loading = () => {
-        return (
-            <h1>Loading...</h1>
-        )
-    }
-
     return (
-        stock ? loaded() : loading()
+        <>
+            <h1>Most Active Stocks</h1>
+            <div className="wrapper">
+                <div className="header">
+                    <h4 className="leftColumn">Company</h4>
+                    <h4 className="middleColumn">Price</h4>
+                    <h4 className="rightColumn">Change</h4>
+                </div>
+                <div className="line"></div>
+                <div className="stocksList">
+                    {dataArr.map((stocks) => {
+                        const { name, symbol, lastPrice, change } = stocks;
+                        return (
+                            <div className="inner"> 
+                                <Link to={`/stocks/${symbol}`}>
+                                    <h3 className="company">{`${name} (${symbol})`}</h3> 
+                                </Link>
+                                <h3 className="price">{lastPrice}</h3>
+                                <h3 className="change">{change.toFixed(2)}</h3>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </>
     )
 }

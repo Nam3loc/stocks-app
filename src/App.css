@@ -1,17 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
 
 .nav {
   display: flex;
-  justify-content: space-between;
-  background-color: black;
-  color: white;
-  padding: 15px;
-  font-size: 2em;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: 0 20px;
+  background-color: gray;
+  height: 5vh;
 }
 
-.nav a {
-  color: white;
+.nav > .text {
   text-decoration: none;
+  color: white;
+}
+
+.hover:hover {
+  color: black;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.line {
+  background-color: black;
+  width: 100%;
+  height: 2px;
+}
+
+.leftColumn {
+  display: flex;
+  justify-content: flex-start;
+
+  width: 30vw;
+}
+
+.rightColumn {
+  display: flex;
+  justify-content: flex-end;
+
+  width: 30vw;
+}
+
+.middleColumn {
+  display: flex;
+  justify-content: center;
+
+  width: 30vw;
+}
+
+.inner > h3 {
+  width: 90vw;
+}
+
+.company {
+  display: flex;
+  justify-content: flex-start;
+
+  width: 30vw;
+}
+
+.price {
+  display: flex;
+  justify-content: center;
+
+  width: 30vw;
+}
+
+.change {
+  display: flex;
+  justify-content: flex-end;
+
+  width: 30vw;
+}
+
+.stocksList {
+
 }
